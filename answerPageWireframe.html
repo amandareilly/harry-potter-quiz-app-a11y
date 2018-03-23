@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Harry Potter Quiz App</title>
+    <meta name="description" content="Test your knowledge of the Harry Potter Universe.  Are you the ultimate Potter-head?">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css\float-grid.css">
+    <link rel="stylesheet" href="css\app.css">
+  </head>
+  <body>
+    <header role="banner" class="row">
+      <div class="col-6">
+        <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest">
+      </div>
+      <div class="col-6 js-quiz-score-tracker">
+        <h2 class="js-quiz-score">Current Score: <span id="js-quiz-current-score">X</span> of <span id="js-quiz-total-score">Y</span></h2>
+        <h2 class="js-quiz-counter">Question Number <span id="js-quiz-current-question">X</span> of <span id="js-quiz-total-questions">Y</span></h2>
+      </div>
+    </header>
+    <main role="main">
+      <div class="row js-quiz-result-container">
+        <div class="col-12">
+          <h3 class="js-quiz-result-text">You got it right!</h3>
+        </div>
+        <div class="col-6 js-quiz-result-image-container">
+          <img src="images\hermoine_polyjuice.jpg" alt="some alt text" class="js-quiz-result-image">
+        </div>
+        <div class="col-6 js-quiz-result-factoid">
+          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat eligendi expedita velit ex explicabo dignissimos inventore distinctio sapiente consequuntur excepturi ducimus error atque doloremque vitae molestias, eos iusto officiis labore.</div>
+          <button class="js-quiz-next-question">Next Question</button>
+        </div>
+      </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js\arrayshuffle.js"></script>
+    <script src="js\datastore.js"></script>
+    <script src="js\index.js"></script>
+  </body>
+</html>
