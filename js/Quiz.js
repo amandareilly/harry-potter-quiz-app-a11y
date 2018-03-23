@@ -22,44 +22,11 @@ class Quiz {
     return false;
   }
 
-  advanceQuestion() {
-    this.currentQuestion = this.questionBank.getQuestion();
-    this.currentQuestionNum++;
-  }
-
-  getQuestionText() {
-    return this.currentQuestion.question;
-  }
-
-  getPossibleAnswers() {
-    return this.currentQuestion.answers;
-  }
-
-  getCorrectAnswer() {
-    return this.currentQuestion.correctAnswer;
-  }
-
-  getAnswerFactoid() {
-    return this.currentQuestion.answerFactoid;
-  }
-
-  getAnswerUrl() {
-    return this.currentQuestion.answerUrl;
-  }
-
-  getAnswerImage() {
-    return this.currentQuestion.answerImage;
-  }
-
-  getAnswerImageAlt() {
-    return this.currentQuestion.answerImageAlt;
-  }
-
   checkAnswer(answer) {
     if(!answer) {
       throw "You must provide an answer to check!";
     } else {
-      if(answer === this.currentQuestion.correctAnswer) {
+      if(answer === this.questionBank.getCorrectAnswer()) {
         return true;
       }
       return false;

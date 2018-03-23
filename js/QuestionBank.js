@@ -271,21 +271,50 @@ class QuestionBank {
 
     ];
     if(numQuestions > questions.length) {
+      /**
+       * Throw an error if too many questions requested.
+       */
       throw `Not enough questions available.  Maximum ${questions.length} questions.`;
     }
     else {
-      /**
-       * Randomize array element order in-place.
-       * Using Durstenfeld shuffle algorithm.
-       */
       shuffleArray(questions);
       this.questions = questions.slice(0, numQuestions);
+      this.currentQuestion = this.questions.pop();
+      shuffleArray(this.currentQuestion.answers);
     }
   }
 
-  getQuestion() {
+  nextQuestion() {
     this.currentQuestion = this.questions.pop();
-    shuffleArray(question.answers);
-    return question;
+    shuffleArray(this.currentQuestion.answers);
   }
+
+  getQuestionText() {
+    return this.currentQuestion.question;
+  }
+
+  getPossibleAnswers() {
+    return this.currentQuestion.answers;
+  }
+
+  getCorrectAnswer() {
+    return this.currentQuestion.correctAnswer;
+  }
+
+  getAnswerFactoid() {
+    return this.currentQuestion.answerFactoid;
+  }
+
+  getAnswerUrl() {
+    return this.currentQuestion.answerUrl;
+  }
+
+  getAnswerImage() {
+    return this.currentQuestion.answerImage;
+  }
+
+  getAnswerImageAlt() {
+    return this.currentQuestion.answerImageAlt;
+  }
+  
 }
