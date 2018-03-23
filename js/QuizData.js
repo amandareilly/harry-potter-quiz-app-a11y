@@ -1,8 +1,7 @@
-class Quiz {
+class QuizData {
   constructor(numQuestions = 10) {
     this.numQuestions = numQuestions;
     this.questionBank = new QuestionBank(this.numQuestions);
-    this.currentQuestion = this.questionBank.getQuestion();
     this.currentScore = 0;
     this.possibleScore = 0;
     this.currentQuestionNum = 1;
@@ -38,5 +37,10 @@ class Quiz {
     if(correct) {
       this.currentScore++;
     }
+  }
+
+  advanceQuestionPointer() {
+    this.questionBank.nextQuestion();
+    this.currentQuestionNum++;
   }
 }
