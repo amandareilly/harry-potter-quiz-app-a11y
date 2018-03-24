@@ -16,8 +16,8 @@ function renderQuizPage() {
     <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest">
   </div>
   <div class="col-6 js-quiz-score-tracker">
-    <h2 class="js-quiz-score">Current Score: <span id="js-quiz-current-score">X</span> of <span id="js-quiz-total-score">Y</span></h2>
-    <h2 class="js-quiz-counter">Question Number <span id="js-quiz-current-question">X</span> of <span id="js-quiz-total-questions">Y</span></h2>
+    <h2 class="js-quiz-score">Current Score: <span id="js-quiz-current-score">${QUIZ.currentScore}</span> of <span id="js-quiz-total-score">${QUIZ.possibleScore}</span></h2>
+    <h2 class="js-quiz-counter">Question Number <span id="js-quiz-current-question">${QUIZ.currentQuestionNum}</span> of <span id="js-quiz-total-questions">${QUIZ.numQuestions}</span></h2>
   </div>
   `;
 
@@ -25,15 +25,12 @@ function renderQuizPage() {
 }
 
 function renderQuestion() {
-  const questionText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-  const questionAnswers = ["A", "B", "C", "D"];
+  const questionText = QUIZ.questionBank.getQuestionText();
+  const questionAnswers = QUIZ.questionBank.getPossibleAnswers();
   let optionHTML = "";
-
-  for(let answer in questionAnswers) {
-    optionHTML += `<button class="col-6 js-quiz-option">${answer}</button>\n`;
+  for(let i = 0; i < questionAnswers.length; i++) {
+    optionHTML += `<button class="col-6 js-quiz-option">${questionAnswers[i]}</button>\n`;
   }
-
   const mainHTML = `
   <form action="#" class="js-quiz-container">
     <div class="row js-quiz-question-container">
@@ -50,12 +47,21 @@ function renderQuestion() {
   $("main").html(mainHTML);
 }
 
-function renderAnswer() {
-  const resultAnswer = "You got it right!"
-  const resultFactoid = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-  const resultImage = 'hermoine_polyjuice.jpg';
-  const resultImageAlt = "Some Alt text.";
-  const nextQuestionButtonText = "Next Question";
+function renderAnswer(result) {
+  let resultAnswer = "Oh no, you got it wrong!  The correct answer is " + QUIZ.questionBank.getCorrectAnswer();
+  if(result) {
+    resultAnswer = "You're right!  Great job!"
+  }
+  const resultFactoid = QUIZ.questionBank.getAnswerFactoid();
+  const resultImage = QUIZ.questionBank.getAnswerImage();
+  const resultImageAlt = QUIZ.questionBank.getAnswerImageAlt();
+  let nextQuestionButtonText = "Next Question";
+  let nextQuestionButtonClass = "js-quiz-next-question";
+  if(QUIZ.isLastQuestion()) {
+    nextQuestionButtonText = "See Your Final Score";
+    nextQuestionButtonClass = "js-quiz-view-final";
+  }
+
   const mainHTML = `
   <div class="row js-quiz-result-container">
     <div class="col-12">
@@ -68,7 +74,7 @@ function renderAnswer() {
       <div>
         ${resultFactoid}
       </div>
-      <button class="js-quiz-next-question">${nextQuestionButtonText}</button>
+      <button class="${nextQuestionButtonClass}">${nextQuestionButtonText}</button>
     </div>
   </div>
   `;
@@ -90,7 +96,7 @@ function renderFinalResults() {
     <div class="col-12 js-quiz-score-tracker">
       <p class="js-quiz-score">You scored: <span id="js-quiz-current-score">${totalScore}</span> of <span id="js-quiz-total-score">${potentialScore}</span> points!</p>
       <p class="js-quiz-result-text">${finalResultText}</p>
-      <button id="js-start-new-quiz">Start New Quiz!</button>
+      <button class="js-quiz-start-button">Start New Quiz!</button>
     </div>
   </div>
   `;

@@ -15,7 +15,7 @@ class QuizData {
   }
 
   isLastQuestion() {
-    if(this.currentQuestionNum = this.numQuestions) {
+    if(this.currentQuestionNum === this.numQuestions) {
       return true;
     }
     return false;

@@ -316,5 +316,5 @@ class QuestionBank {
   getAnswerImageAlt() {
     return this.currentQuestion.answerImageAlt;
   }
-  
+
 }
