@@ -1,10 +1,14 @@
 function renderStartPage() {
   const headerHTML = `
   <h1 class="js-quiz-headline-question">Are you the Ultimate Potterhead?</h1>
-  <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest">
   `;
   const mainHTML = `
+  <div class="row ls-side-by-side-small">
+    <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest" class="hogwarts-crest hogwarts-crest-large">
+  </div>
+  <div class="row ls-side-by-side-large">
     <button class="js-quiz-start-button">Start The Quiz</button>
+  </div>
   `;
   $("header").html(headerHTML);
   $("main").html(mainHTML);
@@ -13,7 +17,7 @@ function renderStartPage() {
 function renderQuizPage() {
   const headerHTML = `
   <div class="col-6">
-    <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest">
+    <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest" class="hogwarts-crest hogwarts-crest-small">
   </div>
   <div class="col-6 js-quiz-score-tracker">
     <h2 class="js-quiz-score">Current Score: <span id="js-quiz-current-score">${QUIZ.currentScore}</span> of <span id="js-quiz-total-score">${QUIZ.possibleScore}</span></h2>
@@ -21,7 +25,7 @@ function renderQuizPage() {
   </div>
   `;
 
-  $("header").addClass("row").html(headerHTML);
+  $("header").html(headerHTML);
 }
 
 function renderQuestion() {
@@ -83,20 +87,37 @@ function renderAnswer(result) {
 }
 
 function renderFinalResults() {
-  const finalResults = "You are the Ultimate Potterhead!";
+  let finalResults = "";
+  let finalResultText = "";
+  let startNewButtonText = "";
+  if(QUIZ.currentScore === QUIZ.possibleScore) {
+    finalResults = "You are the Ultimate Potterhead!";
+    finalResultText = "Hermione, is that you?  You're the smartest witch or wizard we know!";
+    startNewButtonText = "Start new quiz!"
+  } else if(QUIZ.possibleScore - QUIZ.currentScore <= 3) {
+    finalResults = "You're not the Ultimate Potterhead, but...";
+    finalResultText = "...you certainly know your stuff!  Care to try again?";
+    startNewButtonText = "Try Again";
+  } else {
+    finalResults = "Hermione is waiting for you....";
+    finalResultText = "...in the library.  You've got some studying to do!  Better luck next time.";
+    startNewButtonText = "Try Again";
+  }
   const headerHTML = `
   <h1 class="js-quiz-result-headline">${finalResults}</h1>
-  <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest">
   `;
-  const totalScore = 10;
-  const potentialScore = 10;
-  const finalResultText = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  const totalScore = QUIZ.currentScore;
+  const potentialScore = QUIZ.possibleScore;
   const mainHTML = `
-  <div class="row">
+  <div class="row ls-side-by-side-small">
+    <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest" class="hogwarts-crest hogwarts-crest-large">
+  </div>
+  <div class="row ls-side-by-side-large">
     <div class="col-12 js-quiz-score-tracker">
-      <p class="js-quiz-score">You scored: <span id="js-quiz-current-score">${totalScore}</span> of <span id="js-quiz-total-score">${potentialScore}</span> points!</p>
       <p class="js-quiz-result-text">${finalResultText}</p>
-      <button class="js-quiz-start-button">Start New Quiz!</button>
+      <p class="js-quiz-score">You scored: <span id="js-quiz-current-score">${totalScore}</span> of <span id="js-quiz-total-score">${potentialScore}</span> points!</p>
+
+      <button class="js-quiz-start-button">${startNewButtonText}</button>
     </div>
   </div>
   `;

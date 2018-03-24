@@ -1,3 +1,71 @@
+body {
+  background-image: url("../images/DAILYPROPHETBG.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #FFFFFF;
+  font-family: "Annie Use Your Telescope", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  border-radius: 25px;
+  background-image: url(../images/chalkboard.jpg);
+  padding-top: 25px;
+  padding-bottom: 25px;
+  box-shadow: 10px 20px rgba(0, 0, 0, 0.5);
+  height: 96vh;
+  overflow: none;
+}
+
 img {
   max-width: 100%;
+}
+
+.hogwarts-crest-large {
+  display: block;
+  margin: auto;
+  max-height: 40vh;
+}
+
+.hogwarts-crest-small {
+  max-width: 250px;
+}
+
+button {
+  display: block;
+  font-size: 3rem;
+  padding: 35px;
+}
+
+.js-quiz-start-button {
+  margin: auto;
+}
+
+.js-quiz-headline-question, .js-quiz-result-headline {
+  text-align: center;
+  display: block;
+  font-size: 3em;
+  margin-top: 0;
+}
+
+@media(orientation: landscape) {
+  .ls-side-by-side-small {
+    width: 30%;
+    float: left;
+  }
+  .ls-side-by-side-large {
+    width: 70%;
+    float: left;
+    position: relative;
+  }
+  .hogwarts-crest-large {
+    max-height: 100%;
+  }
+
+  .ls-side-by-side-large button {
+    height = 100%;
+  }
 }
