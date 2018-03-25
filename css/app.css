@@ -1,3 +1,6 @@
+body, html {
+  height: 100%;
+}
 body {
   background-image: url("../images/DAILYPROPHETBG.jpg");
   background-position: center center;
@@ -6,22 +9,100 @@ body {
   background-size: cover;
   color: #FFFFFF;
   font-family: "Annie Use Your Telescope", Arial, Helvetica, sans-serif;
+  font-size: 100%;
+}
+
+body * {
+  box-sizing: border-box;
 }
 
 .container {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+  max-width: 1000px;
+  margin: 4vh auto;
+  min-height: 92vh;
   border-radius: 25px;
   background-image: url(../images/chalkboard.jpg);
-  padding-top: 25px;
-  padding-bottom: 25px;
-  box-shadow: 10px 20px rgba(0, 0, 0, 0.5);
-  height: 96vh;
-  overflow: none;
+  padding: 25px;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.container.quiz-page {
+  justify-content: flex-start;
+}
+
+header.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 6vh;
+}
+
+header.flex .hogwarts-crest-small {
+  object-fit: contain;
+  max-height: 20vh;
+}
+h1.quiz-score-headline {
+  text-align: center;
+  font-size: 1.9em;
+  padding-bottom: .25em;
+  margin-bottom: .25em;
+  border-bottom: 4px solid #FFFFFF;
+}
+p.quiz-score, p.quiz-counter {
+  font-size: 1.7em;
+  margin: 0;
+}
+em {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+div.quiz-question, div.quiz-answer-text {
+  font-size: 2.5em;
+  padding-bottom: 5vh;
+  text-align: center;
+}
+div.quiz-options-container {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-column-gap: 4%;
+  grid-row-gap: 2vw;
+}
+button.js-quiz-option {
+  font-size: 2em;
+  letter-spacing: 3px;
+}
+main.grid {
+  display: grid;
+  grid-template-columns: 50% 46%;
+  grid-column-gap: 4%;
+}
+.quiz-answer-text {
+  grid-column-end: span 2;
+}
+
+.quiz-result-factoid p {
+  margin-top: 0;
+  letter-spacing: 2px;
+}
+
+.quiz-result-factoid a {
+  color: #FFFFFF;
+}
+button.js-quiz-next-question, button.js-quiz-view-final {
+  grid-column-end: span 2;
+}
 img {
   max-width: 100%;
+}
+.quiz-result-image {
+  margin-bottom: 1em;
+}
+div.quiz-result-factoid {
+  font-size: 1.5em;
 }
 
 .hogwarts-crest-large {
@@ -29,43 +110,60 @@ img {
   margin: auto;
   max-height: 40vh;
 }
-
-.hogwarts-crest-small {
-  max-width: 250px;
+p.quiz-result-text {
+  font-size: 2.5em;
+  text-align: center;
 }
-
 button {
   display: block;
-  font-size: 3rem;
-  padding: 35px;
+  padding: 20px 30px;
+  background-color: Transparent;
+  border: 4px solid #FFFFFF;
+  border-radius: 15px;
+
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 10px;
+  color: #FFFFFF;
 }
 
 .js-quiz-start-button {
   margin: auto;
 }
 
-.js-quiz-headline-question, .js-quiz-result-headline {
+.quiz-headline-question, .quiz-result-headline {
   text-align: center;
   display: block;
-  font-size: 3em;
+  font-size: 4em;
+  margin-top: 0;
+}
+.quiz-result-headline {
+  margin-bottom: 0;
+}
+
+p.final-quiz-score {
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+main.flex {
+  display: flex;
+  flex-direction: column;
+}
+.quiz-score-tracker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.quiz-score-tracker p {
   margin-top: 0;
 }
 
-@media(orientation: landscape) {
-  .ls-side-by-side-small {
-    width: 30%;
-    float: left;
-  }
-  .ls-side-by-side-large {
-    width: 70%;
-    float: left;
-    position: relative;
-  }
-  .hogwarts-crest-large {
-    max-height: 100%;
-  }
+.hidden {
+  display: none;
+  position: absolute;
+}
 
-  .ls-side-by-side-large button {
-    height = 100%;
-  }
+.start-page, .final-page {
+  height: 100%;
 }

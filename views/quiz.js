@@ -1,9 +1,8 @@
 $.templates("quiz", `
-<div class="col-6">
-  <img src="images/hogwarts_crest.png" alt="The Hogwarts Crest" class="hogwarts-crest hogwarts-crest-small">
-</div>
-<div class="col-6 js-quiz-score-tracker">
-  <h2 class="js-quiz-score">Current Score: <span id="js-quiz-current-score">{{:currentScore}}</span> of <span id="js-quiz-total-score">{{:possibleScore}}</span></h2>
-  <h2 class="js-quiz-counter">Question Number <span id="js-quiz-current-question">{{:currentQuestionNum}}</span> of <span id="js-quiz-total-questions">{{:numQuestions}}</span></h2>
+<img src="images/hogwarts_crest.png" alt="The Hogwarts Crest" class="hogwarts-crest hogwarts-crest-small">
+<div class="js-quiz-score-tracker">
+  <h1 class="quiz-score-headline">Your Progress</h1>
+  <p class="quiz-score">Current Score: <em>{{:currentScore}}</em> of <em>{{:possibleScore}}</em></p>
+  <p class="quiz-counter">Question Number <em>{{:currentQuestionNum}}</em> of <em>{{:numQuestions}}</em></p>
 </div>
 `);

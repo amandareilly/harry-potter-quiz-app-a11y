@@ -1,3 +1,4 @@
 $.templates("startHeader", `
-<h1 class="js-quiz-headline-question">{{:headline}}</h1>
+<img src="images/hogwarts_crest.png" alt="The Hogwarts Crest" class="hogwarts-crest hogwarts-crest-large">
+<h1 class="quiz-headline-question">{{:headline}}</h1>
 `);

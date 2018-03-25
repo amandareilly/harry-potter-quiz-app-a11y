@@ -1,3 +1,3 @@
 $.templates("finalHeader", `
-<h1 class="js-quiz-result-headline">{{:finalResults}}</h1>
+<h1 class="quiz-result-headline">{{:finalResults}}</h1>
 `);
