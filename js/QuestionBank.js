@@ -269,7 +269,7 @@ class QuestionBank {
       }
 
     ];
-    if(numQuestions > questions.length) {
+    if (numQuestions > questions.length) {
       /**
        * Throw an error if too many questions requested.
        */
