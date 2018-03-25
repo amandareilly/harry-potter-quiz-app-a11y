@@ -41,12 +41,16 @@ class QuizData {
     // If the named remote template is not yet loaded and compiled
     // as a named template, fetch it. In either case, return a promise
     // (already resolved, if the template has already been loaded)
-    var deferred = $.Deferred();
+    $.ajaxSetup({
+      cache: true
+    });
+    let deferred = $.Deferred();
+    const myPath = window.location.href;
+    let url = myPath + 'views/' + name + '.js';
     if ($.templates[name]) {
       deferred.resolve();
     } else {
-      $.getScript(
-        '../views/' + name + '.js')
+      $.getScript(url)
         .then(function() {
           if ($.templates[name]) {
             deferred.resolve();
