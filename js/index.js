@@ -1,20 +1,20 @@
 function mainController() {
   //listen for click on start button
-  $("main").on("click", "button.js-quiz-start-button", firstQuestion);
+  $('main').on('click', 'button.js-quiz-start-button', firstQuestion);
   //listen for click on answer button
-  $("main").on("click", "button.js-quiz-option", processAnswer);
+  $('main').on('click', 'button.js-quiz-option', processAnswer);
   //listen for click on next question button
-  $("main").on("click", "button.js-quiz-next-question", nextQuestion);
+  $('main').on('click', 'button.js-quiz-next-question', nextQuestion);
   //listen for click on final answer button
-  $("main").on("click", "button.js-quiz-view-final", finalizeQuiz);
+  $('main').on('click', 'button.js-quiz-view-final', finalizeQuiz);
   //listen for click on new quiz button
-  $("main").on("click", "button.js-quiz-start-new", newQuiz);
+  $('main').on('click', 'button.js-quiz-start-new', newQuiz);
   let quiz = startQuiz();
   quiz.startPage();
 }
 
 function startQuiz() {
-  quiz = new QuizData(1);
+  quiz = new QuizData();
   return quiz;
 }
 

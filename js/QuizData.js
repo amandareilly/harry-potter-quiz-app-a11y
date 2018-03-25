@@ -8,17 +8,17 @@ class QuizData {
   }
 
   isLastQuestion() {
-    if(this.currentQuestionNum === this.numQuestions) {
+    if (this.currentQuestionNum === this.numQuestions) {
       return true;
     }
     return false;
   }
 
   checkAnswer(answer) {
-    if(!answer) {
-      throw "You must provide an answer to check!";
+    if (!answer) {
+      throw 'You must provide an answer to check!';
     } else {
-      if(answer === this.questionBank.getCorrectAnswer()) {
+      if (answer === this.questionBank.getCorrectAnswer()) {
         return true;
       }
       return false;
@@ -27,7 +27,7 @@ class QuizData {
 
   updateScore(correct) {
     this.possibleScore++;
-    if(correct) {
+    if (correct) {
       this.currentScore++;
     }
   }
@@ -46,13 +46,12 @@ class QuizData {
       deferred.resolve();
     } else {
       $.getScript(
-        "../views/"
-                + name + ".js")
+        '../views/' + name + '.js')
         .then(function() {
           if ($.templates[name]) {
             deferred.resolve();
           } else {
-            alert("Script: \"" + name + ".js\" failed to load");
+            alert('Script: \'' + name + '.js\' failed to load');
             deferred.reject();
           }
         });
@@ -63,17 +62,17 @@ class QuizData {
   startPage() {
     const data = [
       {
-        headline: "Are you the Ultimate Potterhead?",
-        buttonText: "Find Out!"
+        headline: 'Are you the Ultimate Potterhead?',
+        buttonText: 'Find Out!'
       }
     ];
     $.when(
-      this.lazyGetTemplate("startMain")
+      this.lazyGetTemplate('startMain')
     )
     .done(function() {
       const mainHTML = $.templates.startMain.render(data);
-      $("header").addClass("hidden");
-      $("main").html(mainHTML).addClass("flex").addClass("start-page");
+      $('header').addClass('hidden');
+      $('main').html(mainHTML).addClass('flex').addClass('start-page');
     });
   }
 
@@ -84,35 +83,31 @@ class QuizData {
       currentQuestionNum: this.currentQuestionNum,
       numQuestions: this.numQuestions
     };
-    $.when(this.lazyGetTemplate("quiz")).done(function() {
-      console.log(data);
+    $.when(this.lazyGetTemplate('quiz')).done(function() {
       const htmlOutput = $.templates.quiz.render(data);
-      $("header").html(htmlOutput).addClass("flex").removeClass("hidden");
-      $(".container").addClass("quiz-page");
+      $('header').html(htmlOutput).addClass('flex').removeClass('hidden');
+      $('.container').addClass('quiz-page');
     });
   }
 
   renderQuestion() {
-    console.log("render question running");
     const possOptions = this.questionBank.getPossibleAnswers();
     const options = [];
     for (let i in possOptions) {
       options.push({option: possOptions[i]});
     };
-    console.log(options);
     const data = {
       questionText: this.questionBank.getQuestionText(),
       questionOptions: options
     };
 
-    $.when(this.lazyGetTemplate("question")).done(function() {
+    $.when(this.lazyGetTemplate('question')).done(function() {
       const htmlOutput = $.templates.question.render(data);
-      $("main").html(htmlOutput).addClass("flex").removeClass("grid").removeClass("final-page").removeClass("start-page");
+      $('main').html(htmlOutput).addClass('flex').removeClass('grid').removeClass('final-page').removeClass('start-page');
     });
   }
 
   renderAnswer(selected) {
-    console.log("render answer running");
     const result = this.checkAnswer(selected);
     this.updateScore(result);
     this.quizPage();
@@ -122,22 +117,22 @@ class QuizData {
       resultFactoid: this.questionBank.getAnswerFactoid(),
       resultURL: this.questionBank.getAnswerUrl()
     };
-    if(result) {
-      data.resultAnswer = "You're right!";
+    if (result) {
+      data.resultAnswer = 'You\'re right!';
     } else {
-      data.resultAnswer = "Oh no!  The correct answer is " + this.questionBank.getCorrectAnswer() + "!";
+      data.resultAnswer = 'Oh no!  The correct answer is ' + this.questionBank.getCorrectAnswer() + '!';
     }
-    if(this.isLastQuestion()) {
-      data.nextQuestionButtonClass = "js-quiz-view-final";
-      data.nextQuestionButtonText = "View Results";
+    if (this.isLastQuestion()) {
+      data.nextQuestionButtonClass = 'js-quiz-view-final';
+      data.nextQuestionButtonText = 'View Results';
     } else {
-      data.nextQuestionButtonClass = "js-quiz-next-question";
-      data.nextQuestionButtonText = "Next Question";
+      data.nextQuestionButtonClass = 'js-quiz-next-question';
+      data.nextQuestionButtonText = 'Next Question';
     }
 
-    $.when(this.lazyGetTemplate("answer")).done(function() {
+    $.when(this.lazyGetTemplate('answer')).done(function() {
       const htmlOutput = $.templates.answer.render(data);
-      $("main").html(htmlOutput).removeClass("flex").addClass("grid");
+      $('main').html(htmlOutput).removeClass('flex').addClass('grid');
     });
   }
 
@@ -146,27 +141,27 @@ class QuizData {
       totalScore: this.currentScore,
       potentialScore: this.possibleScore
     };
-    if(this.currentScore === this.possibleScore) {
-      data.finalResults = "You ARE the Ultimate Potterhead!";
-      data.finalResultText = "Well done!  You may go to the head of the class!";
-      data.startNewButtonText = "Start New Quiz!";
-    } else if(this.possibleScore - this.currentScore <= 3) {
-      data.finalResults = "You ARE NOT the Ultimate Potterhead.";
-      data.finalResultText = "But you're so close!  Study up, and try again!";
-      data.startNewButtonText = "Try Again!";
+    if (this.currentScore === this.possibleScore) {
+      data.finalResults = 'You ARE the Ultimate Potterhead!';
+      data.finalResultText = 'Well done!  You may go to the head of the class!';
+      data.startNewButtonText = 'Start New Quiz!';
+    } else if (this.possibleScore - this.currentScore <= 3) {
+      data.finalResults = 'You ARE NOT the Ultimate Potterhead.';
+      data.finalResultText = 'But you\'re so close!  Study up, and try again!';
+      data.startNewButtonText = 'Try Again!';
     } else {
-      data.finalResults = "Did you even study?";
-      data.finalResultText = "Hermione would be very disappointed in you!";
-      data.startNewButtonText = "Try Again!";
+      data.finalResults = 'Did you even study?';
+      data.finalResultText = 'Hermione would be very disappointed in you!';
+      data.startNewButtonText = 'Try Again!';
     }
     $.when(
-      this.lazyGetTemplate("finalMain")
+      this.lazyGetTemplate('finalMain')
     )
     .done(function() {
       const mainHTML = $.templates.finalMain.render(data);
-      $("header").empty().addClass("hidden");
-      $("main").html(mainHTML).removeClass("grid").addClass("flex").addClass("final-page");
-      $(".container").removeClass("quiz-page");
+      $('header').empty().addClass('hidden');
+      $('main').html(mainHTML).removeClass('grid').addClass('flex').addClass('final-page');
+      $('.container').removeClass('quiz-page');
     });
   }
 }
