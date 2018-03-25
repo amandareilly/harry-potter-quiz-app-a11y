@@ -123,7 +123,7 @@ class QuizData {
       resultImage: this.questionBank.getAnswerImage(),
       resultImageAlt: this.questionBank.getAnswerImageAlt(),
       resultFactoid: this.questionBank.getAnswerFactoid(),
-      resultURL: this.questionBank.getAnswerUrl
+      resultURL: this.questionBank.getAnswerUrl()
     };
     if(result) {
       data.resultAnswer = "You're right!";
