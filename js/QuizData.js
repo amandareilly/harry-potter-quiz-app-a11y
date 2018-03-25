@@ -61,24 +61,19 @@ class QuizData {
   }
 
   startPage() {
-    const headerData = [
-      {headline: "Are you the Ultimate Potterhead?"}
-    ];
-    const mainData = [
-      {buttonText: "Start Quiz!"}
+    const data = [
+      {
+        headline: "Are you the Ultimate Potterhead?",
+        buttonText: "Find Out!"
+      }
     ];
     $.when(
-      this.lazyGetTemplate("startHeader"),
       this.lazyGetTemplate("startMain")
     )
     .done(function() {
-      const headerHTML = $.templates.startHeader.render(headerData);
-      const mainHTML = $.templates.startMain.render(mainData);
-
-      $("header").html(headerHTML);
-      $("main").html(mainHTML);
+      const mainHTML = $.templates.startMain.render(data);
+      $("main").html(mainHTML).addClass("flex");
     });
-    console.log("startPage ran");
   }
 
   quizPage() {
@@ -91,7 +86,8 @@ class QuizData {
     $.when(this.lazyGetTemplate("quiz")).done(function() {
       console.log(data);
       const htmlOutput = $.templates.quiz.render(data);
-      $("header").html(htmlOutput);
+      $("header").html(htmlOutput).addClass("flex");
+      $(".container").addClass("quiz-page");
     });
   }
 
@@ -110,7 +106,7 @@ class QuizData {
 
     $.when(this.lazyGetTemplate("question")).done(function() {
       const htmlOutput = $.templates.question.render(data);
-      $("main").html(htmlOutput);
+      $("main").html(htmlOutput).addClass("flex").removeClass("grid");
     });
   }
 
@@ -128,7 +124,7 @@ class QuizData {
     if(result) {
       data.resultAnswer = "You're right!";
     } else {
-      data.resultAnswer = "Oh no!  The correct answer is " + this.questionBank.getCorrectAnswer() + " !";
+      data.resultAnswer = "Oh no!  The correct answer is " + this.questionBank.getCorrectAnswer() + "!";
     }
     if(this.isLastQuestion()) {
       data.nextQuestionButtonClass = "js-quiz-view-final";
@@ -140,7 +136,7 @@ class QuizData {
 
     $.when(this.lazyGetTemplate("answer")).done(function() {
       const htmlOutput = $.templates.answer.render(data);
-      $("main").html(htmlOutput);
+      $("main").html(htmlOutput).removeClass("flex").addClass("grid");
     });
   }
 
@@ -163,14 +159,13 @@ class QuizData {
       data.startNewButtonText = "Try Again!";
     }
     $.when(
-      this.lazyGetTemplate("finalHeader"),
       this.lazyGetTemplate("finalMain")
     )
     .done(function() {
-      const headerHTML = $.templates.finalHeader.render(data);
       const mainHTML = $.templates.finalMain.render(data);
-      $("header").html(headerHTML);
-      $("main").html(mainHTML);
+      $("header").empty();
+      $("main").html(mainHTML).removeClass("grid").addClass("flex");
+      $(".container").removeClass("quiz-page");
     });
   }
 }

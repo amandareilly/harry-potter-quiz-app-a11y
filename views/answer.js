@@ -1,5 +1,5 @@
 $.templates("answer", `
-<h1 class="js-quiz-result-text">{{:resultAnswer}}</h3>
+<div class="quiz-answer-text">{{:resultAnswer}}</div>
 <img src="images\\{{:resultImage}}" alt="{{:resultImageAlt}}" class="quiz-result-image">
 <div class="quiz-result-factoid">
   <p>{{:resultFactoid}}</p>

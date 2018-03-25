@@ -1,5 +1,4 @@
 function mainController() {
-  console.log("main controller running");
   //listen for click on start button
   $("main").on("click", "button.js-quiz-start-button", firstQuestion);
   //listen for click on answer button
@@ -15,8 +14,7 @@ function mainController() {
 }
 
 function startQuiz() {
-  console.log("startQuiz running");
-  quiz = new QuizData();
+  quiz = new QuizData(1);
   return quiz;
 }
 

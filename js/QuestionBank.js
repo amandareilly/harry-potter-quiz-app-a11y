@@ -10,7 +10,7 @@ class QuestionBank {
           'Nicholas the Brave'
         ],
         correctAnswer: 'Sir Nicholas de Mimsy-Porpington',
-        answerFactoid:'Sir Nicholas de Mimsy-Porpington, known after his death as Nearly Headless Nick, (d. 31 October, 1492) was a wizard who attended Hogwarts School of Witchcraft and Wizardry and was Sorted into Gryffindor House. He was a wizard of the royal court as an adult. He was executed by an improper decapitation, after he had a magical mishap with Lady Grieve, in which he tried to straighten her teeth but it backfired and she grew tusks. Since then, he is the resident ghost of Gryffindor Tower at the Hogwarts Castle.',
+        answerFactoid:'Sir Nicholas de Mimsy-Porpington, known after his death as Nearly Headless Nick, was a wizard who attended Hogwarts School of Witchcraft and Wizardry and was Sorted into Gryffindor House. He was executed by an improper decapitation, after he had a magical mishap with Lady Grieve, in which he tried to straighten her teeth but it backfired and she grew tusks. Since then, he is the resident ghost of Gryffindor Tower at the Hogwarts Castle.',
         answerUrl: 'http://harrypotter.wikia.com/wiki/Nicholas_de_Mimsy-Porpington',
         answerImage: 'NickGryffindorTable.jpg',
         answerImageAlt: 'Nearly Headless Nick greets the Gryffindor students at the house table.'
@@ -66,7 +66,7 @@ class QuestionBank {
           '1283'
         ],
         correctAnswer: '700',
-        answerFactoid:'There are seven hundred Quidditch fouls listed in the Department of Magical Games and Sports records, though the entire list has never been made public (it was the department\'s view that some wizards and witches "might get ideas"). 90% of these are banned anyway, by the rule concerning wand use against the opposing team (or rather, lack thereof) and the remaining 10% would not occur even to the dirtiest player. There are, however, 11 common fouls.',
+        answerFactoid:'There are seven hundred Quidditch fouls listed in the Department of Magical Games and Sports records, though the entire list has never been made public (it was the department\'s view that some wizards and witches "might get ideas"). 90% of these are banned anyway, by the rule concerning wand use against the opposing team (or rather, lack thereof).',
         answerUrl: 'http://harrypotter.wikia.com/wiki/Quidditch',
         answerImage: 'quidditch.jpg',
         answerImageAlt: 'Harry and Draco play in a Quidditch match.'
@@ -178,7 +178,7 @@ class QuestionBank {
           'Row 82'
         ],
         correctAnswer: 'Row 97',
-        answerFactoid:'The Hall of Prophecy is a chamber within the Department of Mysteries, on Level nine of the Ministry of Magic in London, England. It features shelves containing records of prophecies, though many of these records, if not all, were destroyed when part of a battle between Death Eaters and Dumbledore\'s Army members occurred in the Hall in 1996. Its existence was long rumoured within the general wizarding community, but never confirmed by the Ministry itself until 1996.',
+        answerFactoid:'The Hall of Prophecy is a chamber within the Department of Mysteries, on Level nine of the Ministry of Magic in London, England. It features shelves containing records of prophecies, though many of these records, if not all, were destroyed when part of a battle between Death Eaters and Dumbledore\'s Army members occurred in the Hall in 1996.',
         answerUrl: 'http://harrypotter.wikia.com/wiki/Hall_of_Prophecy',
         answerImage: 'prophecy.jpg',
         answerImageAlt: 'Harry holds the record of the prophecy about him and Voldemort.'
@@ -262,7 +262,7 @@ class QuestionBank {
           'Romulus'
         ],
         correctAnswer: 'Rapier',
-        answerFactoid:'Potterwatch was a pirate radio program hosted by Lee Jordan for those who rebelled against Lord Voldemort and supported Harry Potter during the height of the Second Wizarding War. Fred Weasley co-hosted; Remus Lupin and Kingsley Shacklebolt both appeared on Potterwatch. Each contributor to the show used a codename while on air to protect their identity, but those who knew the individuals could generally tell who was speaking. Every known codename starts with the letter \'R\'.',
+        answerFactoid:'Potterwatch was a pirate radio program hosted by Lee Jordan for those who rebelled against Lord Voldemort and supported Harry Potter during the height of the Second Wizarding War. Each contributor to the show used a codename while on air to protect their identity, but those who knew the individuals could generally tell who was speaking. Every known codename starts with the letter \'R\'.',
         answerUrl: 'http://harrypotter.wikia.com/wiki/Potterwatch',
         answerImage: 'fred_weasley.jpg',
         answerImageAlt: 'A photo of Fred Weasley.'
