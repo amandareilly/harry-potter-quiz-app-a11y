@@ -1,3 +1,3 @@
 $.templates("startHeader", `
-<h1 class="js-quiz-headline-question">{{:headline}}</h1>
+<h1 class="quiz-headline-question">{{:headline}}</h1>
 `);

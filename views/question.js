@@ -1,13 +1,13 @@
 $.templates("question", `
-<form action="#" class="js-quiz-container">
-  <div class="row js-quiz-question-container">
-    <div class="col-12 js-quiz-question">
+<form action="#" class="quiz-container">
+  <div class="question-container">
+    <div class="quiz-question">
       {{:questionText}}
     </div>
   </div>
-  <div class="row js-quiz-options-container">
+  <div class="quiz-options-container">
     {{for questionOptions}}
-      <button class="col-6 js-quiz-option">{{:option}}</button>
+      <button class="js-quiz-option">{{:option}}</button>
     {{/for}}
   </div>
 </form>
