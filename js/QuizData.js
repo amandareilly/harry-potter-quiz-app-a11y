@@ -72,7 +72,8 @@ class QuizData {
     )
     .done(function() {
       const mainHTML = $.templates.startMain.render(data);
-      $("main").html(mainHTML).addClass("flex");
+      $("header").addClass("hidden");
+      $("main").html(mainHTML).addClass("flex").addClass("start-page");
     });
   }
 
@@ -86,7 +87,7 @@ class QuizData {
     $.when(this.lazyGetTemplate("quiz")).done(function() {
       console.log(data);
       const htmlOutput = $.templates.quiz.render(data);
-      $("header").html(htmlOutput).addClass("flex");
+      $("header").html(htmlOutput).addClass("flex").removeClass("hidden");
       $(".container").addClass("quiz-page");
     });
   }
@@ -106,7 +107,7 @@ class QuizData {
 
     $.when(this.lazyGetTemplate("question")).done(function() {
       const htmlOutput = $.templates.question.render(data);
-      $("main").html(htmlOutput).addClass("flex").removeClass("grid");
+      $("main").html(htmlOutput).addClass("flex").removeClass("grid").removeClass("final-page").removeClass("start-page");
     });
   }
 
@@ -163,8 +164,8 @@ class QuizData {
     )
     .done(function() {
       const mainHTML = $.templates.finalMain.render(data);
-      $("header").empty();
-      $("main").html(mainHTML).removeClass("grid").addClass("flex");
+      $("header").empty().addClass("hidden");
+      $("main").html(mainHTML).removeClass("grid").addClass("flex").addClass("final-page");
       $(".container").removeClass("quiz-page");
     });
   }

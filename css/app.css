@@ -1,3 +1,6 @@
+body, html {
+  height: 100%;
+}
 body {
   background-image: url("../images/DAILYPROPHETBG.jpg");
   background-position: center center;
@@ -109,6 +112,7 @@ div.quiz-result-factoid {
 }
 p.quiz-result-text {
   font-size: 2.5em;
+  text-align: center;
 }
 button {
   display: block;
@@ -155,18 +159,11 @@ main.flex {
   margin-top: 0;
 }
 
-@media only screen and (max-width: 1000px) {
-  .container {
-    width: 92vw;
-    margin-left: 4vw;
-    margin-right: 4vw;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
-  }
+.hidden {
+  display: none;
+  position: absolute;
 }
 
-@media only screen and (orientation: landscape) and (max-height: 500px) {
-  .container {
-    flex-direction: row;
-    align-items: center;
-  }
+.start-page, .final-page {
+  height: 100%;
 }

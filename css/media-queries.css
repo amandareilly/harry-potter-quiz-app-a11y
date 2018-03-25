@@ -1,0 +1,89 @@
+/* Ensure left and right margins for  */
+/* screens at less than max font-size */
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 92vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  main.grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  header.flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  div.quiz-options-container {
+    display: flex;
+    flex-direction: column;
+  }
+  button.js-quiz-option {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+  }
+  div.quiz-question, div.quiz-answer-text {
+    font-size: 2em;
+  }
+  button.js-quiz-view-final, button.js-quiz-start-new, button.js-quiz-next-question {
+    font-size: 2em;
+    padding: 20px;
+  }
+  .quiz-result-headline {
+    font-size: 3em;
+  }
+  p.quiz-result-text {
+    font-size: 2em;
+  }
+  .hogwarts-crest-large {
+    max-height: 25vh;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .quiz-result-headline, {
+    font-size: 2.5em;
+  }
+  p.quiz-result-text {
+    font-size: 1.7em;
+    margin-top: 10px;
+  }
+  p.final-quiz-score {
+    font-size: 1.5em;
+  }
+  button.js-quiz-view-final, button.js-quiz-start-new {
+    font-size: 1.7em;
+    padding: 15px;
+    letter-spacing: 5px;
+  }
+  header.flex .hogwarts-crest-small {
+    max-height: 10vh;
+  }
+  h1.quiz-score-headline, p.quiz-score, p.quiz-counter {
+    font-size: 1.3em;
+  }
+  header.flex {
+    padding-bottom: 3vh;
+  }
+  div.quiz-question, div.quiz-answer-text {
+    font-size: 1.7em;
+  }
+  button.js-quiz-option {
+    font-size: 1.3em;
+  }
+  .quiz-headline-question {
+    font-size: 3em;
+  }
+  .js-quiz-start-button {
+    font-size: 2em;
+    padding: 20px;
+  }
+}
